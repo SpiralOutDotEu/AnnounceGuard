@@ -1,16 +1,16 @@
-// components/Header.js
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { useState } from "react";
 
 export default function Header() {
-    const [isNetworkSwitchHighlighted, setIsNetworkSwitchHighlighted] =
-        useState(false);
+    const [isNetworkSwitchHighlighted, setIsNetworkSwitchHighlighted] = useState(false);
     const [isConnectHighlighted, setIsConnectHighlighted] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);  // New state for mobile menu
 
     const closeAll = () => {
         setIsNetworkSwitchHighlighted(false);
         setIsConnectHighlighted(false);
+        setMobileMenuOpen(false);  // Close the mobile menu when an item is clicked
     };
 
     return (
@@ -33,7 +33,11 @@ export default function Header() {
                         width="203"
                     />
                 </div>
-                <div className={styles.buttons}>
+                {/* Hamburger icon */}
+                <div className={styles.hamburger} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                    ☰
+                </div>
+                <div className={`${styles.buttons} ${mobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
                     <div
                         onClick={closeAll}
                         className={`${styles.highlight} ${

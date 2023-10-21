@@ -22,7 +22,9 @@ export default function Layout({children}: Props) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header />  
+            <div className={styles.headerClass}>
+                <Header />
+            </div>
             <main className={styles.main}>
                 <div className={styles.wrapper}>
                     {children}

@@ -155,6 +155,10 @@ span.button:hover {
 	padding-bottom: 1.75rem;
 }
 
+.headerClass {
+	z-index: 1000; 
+    position: relative; 
+}
 .header .buttons {
 	display: flex;
 	align-items: center;
@@ -180,4 +184,42 @@ span.button:hover {
 	100% {
 		background-position: 200% 50%;
 	}
+}
+.layout {
+    position: relative;
+    z-index: 10; 
+}
+
+
+/* Hamburger menu styles */
+.hamburger {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger on small screens */
+    }
+
+    .header .buttons {
+        display: none; /* Hide buttons by default on small screens */
+        flex-direction: column; /* Stack buttons vertically */
+        position: absolute;
+		z-index: 20;
+        top: 60px; /* Position below the header */
+        right: 10px;
+        background-color: hsl(var(--h), 1%, 10%);
+        border: 1px solid var(--color-primary);
+        border-radius: var(--rounded-md);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .header .buttons.mobileMenuOpen {
+        display: flex; /* Show buttons when menu is open */
+		z-index: 30;
+		position: absolute;
+    }
 }
