@@ -1,21 +1,13 @@
+// components/Layout.js
 import Head from "next/head";
-import Image from "next/image";
+import Header from "./Header";  // Import the Header component
 import styles from "@/styles/Home.module.css";
-import { useState } from "react";
 
 type Props = {  // Define a Props type
     children: React.ReactNode;
 };
 
 export default function Layout({children}: Props) {
-    const [isNetworkSwitchHighlighted, setIsNetworkSwitchHighlighted] =
-        useState(false);
-    const [isConnectHighlighted, setIsConnectHighlighted] = useState(false);
-
-    const closeAll = () => {
-        setIsNetworkSwitchHighlighted(false);
-        setIsConnectHighlighted(false);
-    };
     return (
         <>
             <Head>
@@ -30,47 +22,7 @@ export default function Layout({children}: Props) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <header>
-                <div
-                    className={styles.backdrop}
-                    style={{
-                        opacity:
-                            isConnectHighlighted || isNetworkSwitchHighlighted
-                                ? 1
-                                : 0,
-                    }}
-                />
-                <div className={styles.header}>
-                    <div className={styles.logo}>
-                        <Image
-                            src="/logo.svg"
-                            alt="WalletConnect Logo"
-                            height="32"
-                            width="203"
-                        />
-                    </div>
-                    <div className={styles.buttons}>
-                        <div
-                            onClick={closeAll}
-                            className={`${styles.highlight} ${isNetworkSwitchHighlighted
-                                    ? styles.highlightSelected
-                                    : ``
-                                }`}
-                        >
-                            <w3m-network-button />
-                        </div>
-                        <div
-                            onClick={closeAll}
-                            className={`${styles.highlight} ${isConnectHighlighted
-                                    ? styles.highlightSelected
-                                    : ``
-                                }`}
-                        >
-                            <w3m-button />
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <Header />  
             <main className={styles.main}>
                 <div className={styles.wrapper}>
                     {children}
