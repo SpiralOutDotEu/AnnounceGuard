@@ -14,6 +14,7 @@ import {
 	optimism,
 	polygon,
 } from "wagmi/chains";
+import Layout from "@/components/Layout";
 
 const chains = [
 	mainnet,
@@ -51,7 +52,9 @@ export default function App({ Component, pageProps }: AppProps) {
 		<>
 			{ready ? (
 				<WagmiConfig config={wagmiConfig}>
-					<Component {...pageProps} />
+					<Layout>  {/* Wrap the Component with Layout */}
+						<Component {...pageProps} />
+					</Layout>
 				</WagmiConfig>
 			) : null}
 		</>
