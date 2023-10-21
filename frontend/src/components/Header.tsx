@@ -27,11 +27,12 @@ export default function Header() {
             <div className={styles.header}>
                 <div className={styles.logo}>
                     <Image
-                        src="/logo.svg"
+                        src="/logo.png"
                         alt="WalletConnect Logo"
-                        height="32"
-                        width="203"
+                        height="72"
+                        width="72"
                     />
+                    <a>AnnounceGuard</a>
                 </div>
                 {/* Hamburger icon */}
                 <div className={styles.hamburger} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
