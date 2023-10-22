@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "contracts",
         "docs",
-        "frontend"
+        "frontend",
+        "API"
     ]
 }
