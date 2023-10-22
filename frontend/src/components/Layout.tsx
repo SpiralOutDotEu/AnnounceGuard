@@ -36,11 +36,9 @@ export default function Layout({children}: Props) {
             <div className={styles.headerClass}>
                 <Header />
             </div>
-            <main className={styles.main}>
-                <div className={styles.wrapper}>
+
                     {children}
-                </div>
-            </main>
+       
         </>
     );
 }
